@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>デバッグ</title>
+</head>
+<body>
+    <script>
+
+   //関数
+   function toOneDimension($previousValue,$currentValue) {
+        console.log($previousValue);
+        console.log($currentValue);
+        return $currentValue.concat($previousValue);
+    }
+
+    //変数
+    var $sampleArrayA = [
+        ['A1','A2','A3'],
+        ['B1','B2','B3'],
+        ['C1','C2','C3']
+    ];
+    console.log($sampleArrayA);
+
+
+    //変数2 sampleArrayBはAの各要素にtoOneDimensionを行い、すべての値を一つにしたもの
+    var $sampleArrayB = $sampleArrayA.reduce(toOneDimension);
+    console.log($sampleArrayB);
+    
+   //リピート文
+    for (var $counterVar = 0; $counterVar < $sampleArrayB.length; $counterVar++){
+        //$sampleArrayB[0~8]:
+        document.write('$sampleArrayB['+ $counterVar +']:');
+        //C1~C3などになるべき
+        document.write($sampleArrayB[$counterVar]);
+        //改行
+        document.write('<br/>');
+    } 
+    </script>
+
+
+</body>
+
+</html>
